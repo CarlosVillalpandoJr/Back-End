@@ -34,14 +34,14 @@ exports.up = function(knex) {
                 .unsigned()
                 .references('id')
                 .inTable('cities')
-                .onDelete('RESTRICT')
+                .onDelete('CASCADE')
                 .onUpdate('CASCADE')
         })
 
-        .createTable('users-restaurants', tbl => {
-            tbl.primary(['users_id', 'restaurants_id'])
+        .createTable('users_restaurants', tbl => {
+            tbl.primary(['user_id', 'restaurant_id'])
 
-            tbl.integer('users_id')
+            tbl.integer('user_id')
                 .unsigned()
                 .notNullable()
                 .references('id')
@@ -49,7 +49,7 @@ exports.up = function(knex) {
                 .onDelete("RESTRICT")
                 .onUpdate("CASCADE")
 
-            tbl.integer('restaurants_id')
+            tbl.integer('restaurant_id')
                 .unsigned()
                 .notNullable()
                 .references('id')
@@ -61,7 +61,7 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
     return knex.schema
-        .dropTableIfExists('users-restaurants')
+        .dropTableIfExists('users_restaurants')
         .dropTableIfExists('restaurants')
         .dropTableIfExists('cities')
 };

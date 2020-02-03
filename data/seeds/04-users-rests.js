@@ -1,9 +1,9 @@
 
 exports.seed = function(knex) {
       // Inserts seed entries
-      return knex('users-restaurants').insert([
-        {users_id: 1, restaurants_id: 1},
-        {users_id: 2, restaurants_id: 2},
-        {users_id: 3, restaurants_id: 3}
+      return knex('users_restaurants').insert([
+        {user_id: 1, restaurant_id: 1},
+        {user_id: 2, restaurant_id: 2},
+        {user_id: 3, restaurant_id: 3}
     ]);
 };

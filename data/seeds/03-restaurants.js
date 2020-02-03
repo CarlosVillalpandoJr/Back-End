@@ -11,7 +11,8 @@ exports.seed = function(knex) {
         website: 'chicagodoghouse.com',
         rating: 5,
         notes: 'Great Chicago style hot dogs',
-        stamped: true
+        stamped: true,
+        city_id: 1
       },
       {
         name: 'Advent Garden', 
@@ -22,7 +23,8 @@ exports.seed = function(knex) {
         website: 'adventgarden.com',
         rating: 4,
         notes: 'Delicious vegan burgers and sweet potato fries',
-        stamped: true
+        stamped: true,
+        city_id: 2
       },
       {
         name: 'Bestia', 
@@ -33,7 +35,8 @@ exports.seed = function(knex) {
         website: 'bestia.com',
         rating: 4,
         notes: 'Trendy Italian restaurant from an acclaimed husband-&-wife.',
-        stamped: true
+        stamped: true,
+        city_id: 3
       }
     ]);
 };
