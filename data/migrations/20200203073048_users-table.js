@@ -11,7 +11,6 @@ exports.up = function(knex) {
         users
             .string('password')
             .notNullable()
-            .unique();
 
         users
             .string('name')
