@@ -19,7 +19,7 @@ exports.up = function(knex) {
 
             restaurants.string('zip').notNullable().unique()
 
-            restaurants.string('phone number').notNullable().unique()
+            restaurants.string('phone').notNullable().unique()
 
             restaurants.string('website').notNullable().unique()
 
@@ -28,16 +28,24 @@ exports.up = function(knex) {
             restaurants.text('notes')
 
             restaurants.boolean('stamped')
+
+            restaurants
+                .integer('city_id')
+                .unsigned()
+                .references('id')
+                .inTable('cities')
+                .onDelete('RESTRICT')
+                .onUpdate('CASCADE')
         })
 
-        .createTable('cities-restaurants', tbl => {
-            tbl.primary(['cities_id', 'restaurants_id'])
+        .createTable('users-restaurants', tbl => {
+            tbl.primary(['users_id', 'restaurants_id'])
 
-            tbl.integer('cities_id')
+            tbl.integer('users_id')
                 .unsigned()
                 .notNullable()
                 .references('id')
-                .inTable('projects')
+                .inTable('users')
                 .onDelete("RESTRICT")
                 .onUpdate("CASCADE")
 
@@ -45,7 +53,7 @@ exports.up = function(knex) {
                 .unsigned()
                 .notNullable()
                 .references('id')
-                .inTable('projects')
+                .inTable('restaurants')
                 .onDelete("RESTRICT")
                 .onUpdate("CASCADE")
         })
@@ -53,7 +61,7 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
     return knex.schema
-        .dropTableIfExists('cities-restaurants')
+        .dropTableIfExists('users-restaurants')
         .dropTableIfExists('restaurants')
         .dropTableIfExists('cities')
 };
