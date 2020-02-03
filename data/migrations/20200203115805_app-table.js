@@ -28,17 +28,32 @@ exports.up = function(knex) {
             restaurants.text('notes')
 
             restaurants.boolean('stamped')
+        })
 
-            restaurants.integer('city_id')
+        .createTable('cities-restaurants', tbl => {
+            tbl.primary(['cities_id', 'restaurants_id'])
+
+            tbl.integer('cities_id')
                 .unsigned()
                 .notNullable()
                 .references('id')
-                .inTable('cities')
+                .inTable('projects')
+                .onDelete("RESTRICT")
+                .onUpdate("CASCADE")
+
+            tbl.integer('restaurants_id')
+                .unsigned()
+                .notNullable()
+                .references('id')
+                .inTable('projects')
+                .onDelete("RESTRICT")
+                .onUpdate("CASCADE")
         })
 };
 
 exports.down = function(knex) {
     return knex.schema
+        .dropTableIfExists('cities-restaurants')
         .dropTableIfExists('restaurants')
         .dropTableIfExists('cities')
 };
