@@ -33,7 +33,7 @@
 
 ## Restaurant GET requests
 
-**3. GET all restaurants:** https://bw-restaurant-pass.herokuapp.com/api/cities/restaurants (this one has a bug, working on it)
+**3. GET all restaurants:** https://bw-restaurant-pass.herokuapp.com/api/cities/all/rests
 
 **4. GET restaurant by ID:** https://bw-restaurant-pass.herokuapp.com/api/cities/restaurants/1
 ```
