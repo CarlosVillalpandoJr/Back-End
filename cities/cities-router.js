@@ -61,12 +61,12 @@ router.get('/restaurants', async (req, res) => {
 router.get('/restaurants/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        if(id) {
             const SingleRestaurant = await Cities.getRestaurantById(id)
-            res.status(200).json(SingleRestaurant);
-        } else {
-            res.status(400).json({ error: 'Restaurant with the specified ID does not exist' })
-        }
+            if(SingleRestaurant) {
+                res.status(200).json(SingleRestaurant);
+            } else {
+                res.status(400).json({ error: 'Restaurant with the specified ID does not exist' })
+            }
     } catch(error){
         console.log(error)
         res.status(500).json({ error: 'Could not get restaurant with the specified ID from the database' })

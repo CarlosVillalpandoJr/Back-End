@@ -15,7 +15,7 @@ exports.up = function(knex) {
 
             restaurants.string('address').notNullable().unique()
 
-            restaurants.string('city').notNullable().unique()
+            restaurants.string('city').notNullable()
 
             restaurants.string('zip').notNullable().unique()
 
