@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
 
 // Restaurants Endpoints
 
-// Returning 200, but no content in body
+
 router.get('/all/rests', async (req, res) => {
     try {
         const AllRestaurants = await Cities.getRestaurants()
@@ -88,6 +88,20 @@ router.post('/restaurants', async (req, res) => {
     }
 })
 
+router.delete('/restaurants/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const DeleteRestaurant = await Cities.deleteRestaurant(id)
+        if(DeleteRestaurant) {
+            res.status(200).json( {message: 'Deleted Restaurant Successfully', count: DeleteRestaurant} )
+        } else {
+            res.status(400).json({ error: 'Restaurant with specified ID does not exist' })
+        }
+    } catch(error) {
+        console.log(error);
+        res.status(500).json({ error: 'Could not remove restaurant from the database' });
+    }
+})
 
 
 module.exports = router;

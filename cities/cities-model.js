@@ -6,7 +6,8 @@ module.exports = {
     addCity,
     getRestaurants,
     getRestaurantById,
-    addRestaurant
+    addRestaurant,
+    deleteRestaurant
 }
 
 function getCities() {
@@ -32,5 +33,11 @@ function getRestaurantById(id) {
 
 function addRestaurant(rest) {
     return db('restaurants').insert(rest, 'id')
+}
+
+function deleteRestaurant(id) {
+    return db('restaurants')
+        .where({ id })
+        .del();
 }
 
