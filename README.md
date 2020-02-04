@@ -52,6 +52,16 @@
 }
 ```
 
+## Restaurant DELETE request 
+
+**DELETE restaurant:** https://bw-restaurant-pass.herokuapp.com/api/cities/restaurants/:id
+```
+{
+  "message": "Deleted Restaurant Successfully",
+  "count": 1
+}
+```
+
 ## City POST request
 
 **5. POST city:** https://bw-restaurant-pass.herokuapp.com/api/cities/
