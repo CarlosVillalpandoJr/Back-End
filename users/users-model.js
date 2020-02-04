@@ -1,9 +1,12 @@
 const db = require('../data/db-config');
 
+
+
 module.exports = {
     getUsers,
     getUserBy,
-    addUser
+    addUser,
+    findById
 };
 
 function getUsers() {
@@ -16,7 +19,6 @@ function getUserBy(filter) {
 
 function findById(id) {
     return db('users').where({ id }).first();
-
 }
 
 // async function addUser(user) {
