@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
 // Restaurants Endpoints
 
 // Returning 200, but no content in body
-router.get('/restaurants', async (req, res) => {
+router.get('/all/rests', async (req, res) => {
     try {
         const AllRestaurants = await Cities.getRestaurants()
         res.status(200).json(AllRestaurants)
