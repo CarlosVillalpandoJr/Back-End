@@ -103,5 +103,21 @@ router.delete('/restaurants/:id', async (req, res) => {
     }
 })
 
+router.put('/restaurants/:id', async (req, res) => {
+    const changes = req.body;
+    const { id } = req.params;
+    try {
+        const UpdatedRest = await Cities.updateRestaurant(id, changes)
+        if(UpdatedRest) {
+            res.status(200).json({ message: 'Update Successful', count: UpdatedRest })
+        } else {
+            res.status(400).json({ error: 'Please make sure you filled out all required fields' })
+        }
+    } catch(error) {
+        console.log(error)
+        res.status(500).json({ error: 'Could not updated restaurant in database' })
+    }
+})
+
 
 module.exports = router;

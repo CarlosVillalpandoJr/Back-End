@@ -7,7 +7,8 @@ module.exports = {
     getRestaurants,
     getRestaurantById,
     addRestaurant,
-    deleteRestaurant
+    deleteRestaurant,
+    updateRestaurant
 }
 
 function getCities() {
@@ -39,5 +40,11 @@ function deleteRestaurant(id) {
     return db('restaurants')
         .where({ id })
         .del();
+}
+
+function updateRestaurant(id, changes) {
+    return db('restaurants')
+        .where({ id })
+        .update(changes, id)
 }
 
