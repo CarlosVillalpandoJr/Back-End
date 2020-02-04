@@ -82,7 +82,7 @@
 ## Login/Register Endpoints
 **As of now, user will get a access token after LOGGING in. Will work on getting a token after registering.**
 
-**7. POST new user (Register):** https://bw-restaurant-pass.herokuapp.com/api/auth/register
+**7. Register:** https://bw-restaurant-pass.herokuapp.com/api/auth/register
 ```
 {
 	"username": "jessy",
@@ -93,7 +93,7 @@
 }
 ```
 
-**8. POST registered user (Login):** https://bw-restaurant-pass.herokuapp.com/api/auth/login
+**8. Login:** https://bw-restaurant-pass.herokuapp.com/api/auth/login
 ```
 {
 	"username": "jessy",
