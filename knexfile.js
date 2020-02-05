@@ -1,4 +1,5 @@
 // Update with your config settings.
+require('dotenv').config()
 
 module.exports = {
 
@@ -19,7 +20,6 @@ module.exports = {
           conn.run("PRAGMA foreign_keys = ON", done); // turn on foreign key enforcement
       },
   },
-
   staging: {
     client: 'postgresql',
     connection: {
@@ -51,5 +51,18 @@ module.exports = {
         tableName: 'knex_migrations'
       }
     }
-  }
+  },
+  testing: {
+    client: 'sqlite3',
+    connection: {
+      filename: './data/test.db3',
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './data/migrations',
+    },
+    seeds: {
+      directory: './data/seeds',
+    },
+  },
 }

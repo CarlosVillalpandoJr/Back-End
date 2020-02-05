@@ -4,6 +4,8 @@ const Cities = require('./cities-model.js');
 
 const router = express.Router();
 
+const restricted = require('../auth/restricted-middleware');
+
 
 router.get('/', async (req, res) => {
     try {
