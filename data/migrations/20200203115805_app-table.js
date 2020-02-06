@@ -4,7 +4,7 @@ exports.up = function(knex) {
         .createTable('cities', cities => {
             cities.increments()
 
-            cities.string('name').notNullable().unique()
+            cities.string('name').notNullable()
         })
     
     
@@ -13,15 +13,15 @@ exports.up = function(knex) {
 
             restaurants.string('name').notNullable()
 
-            restaurants.string('address').notNullable().unique()
+            restaurants.string('address').notNullable()
 
             restaurants.string('city').notNullable()
 
             restaurants.string('zip').notNullable().unique()
 
-            restaurants.string('phone').notNullable().unique()
+            restaurants.string('phone').notNullable()
 
-            restaurants.string('website').notNullable().unique()
+            restaurants.string('website').notNullable()
 
             restaurants.integer('rating')
 

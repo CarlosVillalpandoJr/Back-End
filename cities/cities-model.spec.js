@@ -39,13 +39,13 @@ describe('cities-router', () => {
 
     describe('POST requests', () => {
 
-        it('should POST a new city', async () => {
+        it('should POST a new city successfully', async () => {
             const response = await request(server).post('/api/cities/')
             .send({ name: 'Beverly Hills' })
-            .expect(200)
+            .expect(200)  
         })
 
-        it('should POST a new restaurant', () => {
+        it('should POST a new restaurant successfully', () => {
             request(server).post('/api/restaurants/')
             .send(
                 { 
