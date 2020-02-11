@@ -49,7 +49,7 @@ describe('cities-router', () => {
             request(server).post('/api/restaurants/')
             .send(
                 { 
-                    name: 'test', 
+                    name: 'test',    
                     address: 'test address',
                     city: 'test city',
                     zip: 'test zip',
@@ -59,7 +59,7 @@ describe('cities-router', () => {
                     notes: 'test notes',
                     stamped: 1,
                     city_id: 1
-                }
+                } 
             )
             .expect(200)
         })

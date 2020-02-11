@@ -18,9 +18,9 @@ describe('userRest-model', function() {
 
         it('should get the user restaurants with ID 2', async function() {
             const restaurant = await UserRests.getUserRest(2)
-            console.log('ID 2 rest', restaurant)
+            console.log('ID 2 rest', restaurant[0]) 
             expect(restaurant[0].name).toBe('Advent Garden')
-            expect(restaurant[0].city).toBe('New York')
+            expect(restaurant[0].city).toBe('New York') 
         })
     })
-})
+})    

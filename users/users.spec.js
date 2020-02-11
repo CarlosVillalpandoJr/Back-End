@@ -17,7 +17,7 @@ describe('The Users Model', () => {
             expect(user.length).toBe(1)
             expect(user[0].name).toBe('tester')
             expect(user[0].username).toBe('test')
-            expect(user[0].city).toBe('test city')
+            expect(user[0].city).toBe('test city') 
             expect(user[0].email).toBe('test@gmail.com')
         })
     })
