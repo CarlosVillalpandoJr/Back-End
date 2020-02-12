@@ -7,7 +7,7 @@ const router = express.Router();
 const restricted = require('../auth/restricted-middleware');
 
 
-router.get('/', async (req, res) => {
+router.get('/', restricted, async (req, res) => {
     try {
         const AllCities = await Cities.getCities()
         res.status(200).json(AllCities)
