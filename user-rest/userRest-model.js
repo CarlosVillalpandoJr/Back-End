@@ -2,7 +2,8 @@ const db = require('../data/db-config');
 
 module.exports = {
     getUserRest,
-    addUserRest
+    addUserRest,
+    deleteUserRest
 }
 
 function getUserRest(userId) {
@@ -10,10 +11,16 @@ function getUserRest(userId) {
         .join('users_restaurants', 'restaurants.id', 'users_restaurants.restaurant_id')
         .join('users', 'users.id', 'users_restaurants.user_id')
         .where('users.id', userId)
-        .select('users.name', 'restaurants.name', 'restaurants.city')
+        .select('users.name', 'restaurants.name', 'restaurants.city', 'restaurants.id')
 }
 
 function addUserRest(userId, restId) {
     return db('users_restaurants')
         .insert({ user_id: userId, restaurant_id: restId }, "id")
+}
+
+function deleteUserRest(userId, restId) {
+    return db('users_restaurants')
+        .where({ user_id: userId, restaurant_id: restId })
+        .del()
 }

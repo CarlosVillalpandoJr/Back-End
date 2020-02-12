@@ -31,5 +31,19 @@ router.post('/:userId/:restId', async (req, res) => {
     }
 })
 
+// DELETE a users specific restaurant
+router.delete('/:userId/:restId', async (req, res) => {
+    const user = req.params.userId;
+    const rest = req.params.restId;
+
+    try {
+        const deletedUserRest = await UserRest.deleteUserRest(user, rest)
+        res.status(200).json({ message: 'Successfully deleted', count: deletedUserRest })
+    } catch(error){
+        console.log(error)
+        res.status(500).json({ error: 'Could not delete user restaurant from database' })
+    }
+})
+
 
 module.exports = router;
