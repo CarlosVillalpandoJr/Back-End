@@ -16,7 +16,8 @@ router.post('/register', async (req, res) => {
     try {
         if(user.password && user.city && user.name && user.email) {
             const AddUser = await Users.addUser(user)
-            res.status(201).json({ message: `Thank you for registering, ${user.name}!` })
+            const token = signToken(user)
+            res.status(201).json({ message: `Thank you for registering, ${user.name}!`, token })
         } else {
             res.status(400).json({ errorMessage: 'Please fill out all required fields' })
         }
